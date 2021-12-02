@@ -1,12 +1,12 @@
 import React from 'react';
 
-const BillCard = ({ bill }) => {
+const BillCard = ({ bill, castBill }) => {
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bill.id}
-        onClick={() => console.log('add code to connect event listener')}
+        onClick={() => castBill(bill)}
       >
         <div className="image">
           <img alt={bill.name} src={bill.photo} />
