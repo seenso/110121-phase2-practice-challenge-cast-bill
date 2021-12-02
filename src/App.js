@@ -15,19 +15,36 @@ export default function App() {
   }, []);
 
   function castBill(bill) {
-    // console.log('called castBill() on this bill', bill);
-    setBills(bills.map(b => 
-      b.id === bill.id ? {...bill, cast: true} : b
-      ));
+    if(bill.cast === true) {
+      return;
+    } else {
+      setBills(bills.map(b => 
+        b.id === bill.id ? {...bill, cast: true} : b
+        ));
+      }
+      console.log('called castBill() on this bill', bill);
   }
 
   function fireBill(bill) {
     console.log("Fire this bill", bill)
+    //remove bill from BillsCast 
+    bill.cast = false;
+
+    //remove bill from BillsCollection
+    setBills(
+      bills.filter(b => {
+        b.cast !== false
+      })
+    )
+
+    console.log("Casted Bills after firing bill", bills.filter(b => b.cast))
+
   }
 
   return (
     <div>
-      <BillsCast castedBills={bills.filter(b => b.cast === true)} castBill={castBill} fireBill={fireBill} /> 
+      <BillsCast castedBills={bills.filter(b => b.cast)} 
+                castBill={castBill} fireBill={fireBill} /> 
       <BillCollection bills={bills} castBill={castBill} fireBill={fireBill}/>
     </div>
   );

@@ -6,10 +6,10 @@ const BillCard = ({ bill, castBill, fireBill }) => {
       <div
         className="ui card"
         key={bill.id}
-        onClick={() => castBill(bill)}
+        onClick={ () => castBill(bill) }
       >
         <div className="image">
-          <img alt={bill.name} src={bill.photo} />
+          <img alt={bill.name} src={bill.photo}/>
         </div>
         <div className="content">
           <div className="header">{bill.name}</div>
@@ -34,9 +34,7 @@ const BillCard = ({ bill, castBill, fireBill }) => {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini blue button"
-                onClick={() =>
-                  fireBill(bill)
-                }
+                onClick={ () => fireBill(bill) }
               >
                 FIRE
               </button>

@@ -3,7 +3,7 @@ import BillCard from './BillCard';
 
 export default function BillsCast({ castedBills, castBill, fireBill }) {
   // Your code here
-  console.log("Casted Bills from Bills Cast", castedBills)
+  // console.log("Casted Bills from Bills Cast", castedBills)
 
   return (
     <div className="ui segment inverted blue bill-cast">
