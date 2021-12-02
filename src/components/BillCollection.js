@@ -1,7 +1,7 @@
 import React from 'react';
 import BillCard from './BillCard';
 
-export default function BillCollection({ bills, castBill, fireBill }) {
+export default function BillCollection({ bills, castBill }) {
   // Your code here
 
   return (
@@ -9,7 +9,7 @@ export default function BillCollection({ bills, castBill, fireBill }) {
       <div className="row">
         {/*...and here..*/}
         {bills.map(bill => (
-          <BillCard key={bill.id} bill={bill} castBill={castBill} fireBill={fireBill}/>
+          <BillCard key={bill.id} bill={bill} handleClick={castBill} />
         ))}
       </div>
     </div>

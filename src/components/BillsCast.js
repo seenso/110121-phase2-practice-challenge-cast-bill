@@ -1,7 +1,7 @@
 import React from 'react';
 import BillCard from './BillCard';
 
-export default function BillsCast({ castedBills, castBill, fireBill }) {
+export default function BillsCast({ castedBills, fireBill }) {
   // Your code here
   // console.log("Casted Bills from Bills Cast", castedBills)
 
@@ -11,7 +11,7 @@ export default function BillsCast({ castedBills, castBill, fireBill }) {
         <div className="row bill-cast-row">
         {/*...and here..*/}
         {castedBills.map(b => (
-          <BillCard key={b.id} bill={b} castBill={castBill} fireBill={fireBill} />
+          <BillCard key={b.id} bill={b} handleClick={fireBill} />
         ))}
         </div>
       </div>

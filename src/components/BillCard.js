@@ -1,12 +1,12 @@
 import React from 'react';
 
-const BillCard = ({ bill, castBill, fireBill }) => {
+const BillCard = ({ bill, handleClick }) => {
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bill.id}
-        onClick={ () => castBill(bill) }
+        onClick={ () => handleClick(bill) }
       >
         <div className="image">
           <img alt={bill.name} src={bill.photo}/>
@@ -34,7 +34,7 @@ const BillCard = ({ bill, castBill, fireBill }) => {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini blue button"
-                onClick={ () => fireBill(bill) }
+                onClick={ () => handleClick(bill) }
               >
                 FIRE
               </button>
