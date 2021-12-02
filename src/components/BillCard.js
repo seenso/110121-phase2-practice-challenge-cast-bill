@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BillCard = ({ bill, castBill }) => {
+const BillCard = ({ bill, castBill, fireBill }) => {
   return (
     <div className="ui column">
       <div
@@ -35,7 +35,7 @@ const BillCard = ({ bill, castBill }) => {
               <button
                 className="ui mini blue button"
                 onClick={() =>
-                  console.log('add code to connect event listener')
+                  fireBill(bill)
                 }
               >
                 FIRE

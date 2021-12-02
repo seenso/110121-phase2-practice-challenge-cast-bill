@@ -6,6 +6,7 @@ const api_url = "http://localhost:8002/bills";
 
 export default function App() {
   const [bills, setBills] = useState([]);
+
   //start here with your code for step one
   useEffect(() => {
     fetch(api_url)
@@ -14,13 +15,20 @@ export default function App() {
   }, []);
 
   function castBill(bill) {
-    console.log('called castBill() on this bill', bill);
+    // console.log('called castBill() on this bill', bill);
+    setBills(bills.map(b => 
+      b.id === bill.id ? {...bill, cast: true} : b
+      ));
+  }
+
+  function fireBill(bill) {
+    console.log("Fire this bill", bill)
   }
 
   return (
     <div>
-      <BillsCast />
-      <BillCollection bills={bills} castBill={castBill}/>
+      <BillsCast castedBills={bills.filter(b => b.cast === true)} castBill={castBill} fireBill={fireBill} /> 
+      <BillCollection bills={bills} castBill={castBill} fireBill={fireBill}/>
     </div>
   );
 }
